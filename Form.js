@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, TextInput, Button} from 'react-native';
 
-class Form extends Component {
+class Form extends Component {    
     render() {
+        const {iptChange, addTask } = this.props;
         return (
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Enter Todo" />
-                <Button title="Add" onPress={() => alert('Simple Button pressed')}/>
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="Enter Todo" 
+                    onChangeText={iptChange}
+                />
+                <Button title="Add Todo" onPress={() => addTask()}/>
             </View>
         )
     }

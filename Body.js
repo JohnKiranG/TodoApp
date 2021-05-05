@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, FlatList } from 'react-native';
 
 class Form extends Component {
     render() {
+        const { list } = this.props;
         return (
             <View style={styles.container}>
                 <View>
@@ -10,14 +11,9 @@ class Form extends Component {
                 </View>
                 <View style={{paddingTop: 10}}>
                     <FlatList
-                        data={[
-                            {key: 'Learn ES 6'},
-                            {key: 'Learn React Js'},
-                            {key: 'Learn React Native'},
-                            {key: 'Learn Redux'},                       
-                        ]}
+                        data={list}
                         renderItem={({item, index}) => 
-                            <Text style={[styles.label, {fontSize: 17, fontWeight: 'normal'}]}>{index+1}. {item.key}</Text>}
+                            <Text style={[styles.label, {fontSize: 17, fontWeight: 'normal'}]}>{index+1}. {item.task}</Text>}
                     />
                 </View>
             </View>
